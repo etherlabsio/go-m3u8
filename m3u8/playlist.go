@@ -35,6 +35,7 @@ func (pl *Playlist) String() string {
 func NewPlaylist() *Playlist {
 	return &Playlist{
 		Target: 10,
+		Live:   true,
 	}
 }
 
