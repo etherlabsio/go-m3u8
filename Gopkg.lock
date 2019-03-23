@@ -26,6 +26,14 @@
   version = "v1.0.0"
 
 [[projects]]
+  digest = "1:298c959bff24a7797f114e89aedad63d79ed0b6db6387b5a5a896fc784736c69"
+  name = "github.com/quangngotan95/go-m3u8"
+  packages = ["m3u8"]
+  pruneopts = "UT"
+  revision = "ade2e80a7c8009d9ee1102ea5de9f841a305b308"
+  version = "v0.1"
+
+[[projects]]
   digest = "1:18752d0b95816a1b777505a97f71c7467a8445b8ffb55631a7bf779f6ba4fa83"
   name = "github.com/stretchr/testify"
   packages = ["assert"]
@@ -38,6 +46,7 @@
   analyzer-version = 1
   input-imports = [
     "github.com/AlekSi/pointer",
+    "github.com/quangngotan95/go-m3u8/m3u8",
     "github.com/stretchr/testify/assert",
   ]
   solver-name = "gps-cdcl"
