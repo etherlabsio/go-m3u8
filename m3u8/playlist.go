@@ -89,6 +89,17 @@ func (pl *Playlist) PlaylistSize() int {
 	return result
 }
 
+// Playlists returns list of segment items in a playlist
+func (pl *Playlist) Playlists() []*PlaylistItem {
+	var p []*PlaylistItem
+	for _, i := range pl.Items {
+		if pi, ok := i.(*PlaylistItem); ok {
+			p = append(p, pi)
+		}
+	}
+	return p
+}
+
 // SegmentSize returns number of segment items in a playlist
 func (pl *Playlist) SegmentSize() int {
 	result := 0
@@ -100,6 +111,17 @@ func (pl *Playlist) SegmentSize() int {
 	}
 
 	return result
+}
+
+// Segments returns list of segment items in a playlist
+func (pl *Playlist) Segments() []*SegmentItem {
+	var s []*SegmentItem
+	for _, i := range pl.Items {
+		if si, ok := i.(*SegmentItem); ok {
+			s = append(s, si)
+		}
+	}
+	return s
 }
 
 // ItemSize returns number of items in a playlist
