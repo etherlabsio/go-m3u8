@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 
-	"github.com/quangngotan95/go-m3u8/m3u8"
+	"github.com/etherlabsio/go-m3u8/m3u8"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -102,6 +102,17 @@ func TestReader_MediaPlaylist(t *testing.T) {
 	assert.Equal(t, 140, p.ItemSize())
 }
 
+func TestReader_PlaylistLiveCheck(t *testing.T) {
+	p, err := m3u8.ReadFile("fixtures/playlist.m3u8")
+	assert.Nil(t, err)
+	assert.True(t, p.IsValid())
+	assert.False(t, p.IsLive())
+
+	p, err = m3u8.ReadFile("fixtures/playlist-live.m3u8")
+	assert.Nil(t, err)
+	assert.True(t, p.IsValid())
+	assert.True(t, p.IsLive())
+}
 func TestReader_IFramePlaylist(t *testing.T) {
 	p, err := m3u8.ReadFile("fixtures/iframes.m3u8")
 	assert.Nil(t, err)
