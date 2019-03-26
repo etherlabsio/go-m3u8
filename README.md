@@ -2,6 +2,7 @@
 [![codecov](https://codecov.io/gh/quangngotan95/go-m3u8/branch/master/graph/badge.svg)](https://codecov.io/gh/quangngotan95/go-m3u8)
 [![Go Report Card](https://goreportcard.com/badge/github.com/quangngotan95/go-m3u8)](https://goreportcard.com/report/github.com/quangngotan95/go-m3u8)
 [![GoDoc](https://godoc.org/github.com/quangngotan95/go-m3u8/m3u8?status.svg)](https://godoc.org/github.com/quangngotan95/go-m3u8/m3u8)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fetherlabsio%2Fgo-m3u8.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fetherlabsio%2Fgo-m3u8?ref=badge_shield)
 # go-m3u8
 Golang package for m3u8 (ported m3u8 gem https://github.com/sethdeckard/m3u8)
 
@@ -126,3 +127,6 @@ Not all Levels and Profiles can be combined and validation is not currently impl
 
 ## License
 MIT License - See [LICENSE](https://github.com/quangngotan95/go-m3u8/blob/master/LICENSE) for details
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fetherlabsio%2Fgo-m3u8.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fetherlabsio%2Fgo-m3u8?ref=badge_large)
