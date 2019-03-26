@@ -128,5 +128,4 @@ Not all Levels and Profiles can be combined and validation is not currently impl
 ## License
 MIT License - See [LICENSE](https://github.com/etherlabsio/go-m3u8/blob/master/LICENSE) for details
 
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fetherlabsio%2Fgo-m3u8.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fetherlabsio%2Fgo-m3u8?ref=badge_large)
-
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fetherlabsio%2Fgo-m3u8.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fetherlabsio%2Fgo-m3u8?ref=badge_large)
