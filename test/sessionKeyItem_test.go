@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 
-	"github.com/lijo-jose/go-m3u8/m3u8"
+	"github.com/etherlabsio/go-m3u8/m3u8"
 	"github.com/stretchr/testify/assert"
 )
 
