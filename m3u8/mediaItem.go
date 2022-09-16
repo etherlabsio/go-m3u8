@@ -7,18 +7,19 @@ import (
 
 // MediaItem represents a set of EXT-X-MEDIA attributes
 type MediaItem struct {
-	Type            string
-	GroupID         string
-	Name            string
-	Language        *string
-	AssocLanguage   *string
-	AutoSelect      *bool
-	Default         *bool
-	Forced          *bool
-	URI             *string
-	InStreamID      *string
-	Characteristics *string
-	Channels        *string
+	Type              string
+	GroupID           string
+	Name              string
+	Language          *string
+	AssocLanguage     *string
+	AutoSelect        *bool
+	Default           *bool
+	Forced            *bool
+	URI               *string
+	InStreamID        *string
+	Characteristics   *string
+	Channels          *string
+	StableRenditionId *string
 }
 
 // NewMediaItem parses a text line and returns a *MediaItem
@@ -26,18 +27,19 @@ func NewMediaItem(text string) (*MediaItem, error) {
 	attributes := ParseAttributes(text)
 
 	return &MediaItem{
-		Type:            attributes[TypeTag],
-		GroupID:         attributes[GroupIDTag],
-		Name:            attributes[NameTag],
-		Language:        pointerTo(attributes, LanguageTag),
-		AssocLanguage:   pointerTo(attributes, AssocLanguageTag),
-		AutoSelect:      parseYesNo(attributes, AutoSelectTag),
-		Default:         parseYesNo(attributes, DefaultTag),
-		Forced:          parseYesNo(attributes, ForcedTag),
-		URI:             pointerTo(attributes, URITag),
-		InStreamID:      pointerTo(attributes, InStreamIDTag),
-		Characteristics: pointerTo(attributes, CharacteristicsTag),
-		Channels:        pointerTo(attributes, ChannelsTag),
+		Type:              attributes[TypeTag],
+		GroupID:           attributes[GroupIDTag],
+		Name:              attributes[NameTag],
+		Language:          pointerTo(attributes, LanguageTag),
+		AssocLanguage:     pointerTo(attributes, AssocLanguageTag),
+		AutoSelect:        parseYesNo(attributes, AutoSelectTag),
+		Default:           parseYesNo(attributes, DefaultTag),
+		Forced:            parseYesNo(attributes, ForcedTag),
+		URI:               pointerTo(attributes, URITag),
+		InStreamID:        pointerTo(attributes, InStreamIDTag),
+		Characteristics:   pointerTo(attributes, CharacteristicsTag),
+		Channels:          pointerTo(attributes, ChannelsTag),
+		StableRenditionId: pointerTo(attributes, StableRenditionIDTag),
 	}, nil
 }
 
@@ -74,6 +76,9 @@ func (mi *MediaItem) String() string {
 	}
 	if mi.Channels != nil {
 		slice = append(slice, fmt.Sprintf(quotedFormatString, ChannelsTag, *mi.Channels))
+	}
+	if mi.StableRenditionId != nil {
+		slice = append(slice, fmt.Sprintf(quotedFormatString, StableRenditionIDTag, *mi.StableRenditionId))
 	}
 
 	return fmt.Sprintf("%s:%s", MediaItemTag, strings.Join(slice, ","))
