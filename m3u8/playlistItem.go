@@ -29,6 +29,7 @@ type PlaylistItem struct {
 	FrameRate        *float64
 	HDCPLevel        *string
 	Resolution       *Resolution
+	StableVariantID  *string
 }
 
 // NewPlaylistItem parses a text line and returns a *PlaylistItem
@@ -79,6 +80,7 @@ func NewPlaylistItem(text string) (*PlaylistItem, error) {
 		Name:             pointerTo(attributes, NameTag),
 		HDCPLevel:        pointerTo(attributes, HDCPLevelTag),
 		Resolution:       resolution,
+		StableVariantID:  pointerTo(attributes, StableVariantIDTag),
 	}, nil
 }
 
@@ -131,6 +133,9 @@ func (pi *PlaylistItem) String() string {
 	}
 	if pi.Name != nil {
 		slice = append(slice, fmt.Sprintf(quotedFormatString, NameTag, *pi.Name))
+	}
+	if pi.StableVariantID != nil {
+		slice = append(slice, fmt.Sprintf(quotedFormatString, StableVariantIDTag, *pi.StableVariantID))
 	}
 
 	attributesString := strings.Join(slice, ",")

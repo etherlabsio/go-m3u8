@@ -12,7 +12,7 @@ func TestMediaItem_Parse(t *testing.T) {
 ASSOC-LANGUAGE="spoken",NAME="Francais",AUTOSELECT=YES,
 INSTREAM-ID="SERVICE3",CHARACTERISTICS="public.html",
 CHANNELS="6",
-"DEFAULT=NO,URI="frelo/prog_index.m3u8",FORCED=YES
+"DEFAULT=NO,URI="frelo/prog_index.m3u8",STABLE-RENDITION-ID="1234",FORCED=YES
 "`
 
 	mi, err := m3u8.NewMediaItem(line)
@@ -21,6 +21,7 @@ CHANNELS="6",
 	assert.Equal(t, "audio-lo", mi.GroupID)
 	assert.Equal(t, "Francais", mi.Name)
 
+	assertNotNilEqual(t, "1234", mi.StableRenditionId)
 	assertNotNilEqual(t, "fre", mi.Language)
 	assertNotNilEqual(t, "spoken", mi.AssocLanguage)
 	assertNotNilEqual(t, true, mi.AutoSelect)
@@ -31,6 +32,6 @@ CHANNELS="6",
 	assertNotNilEqual(t, "public.html", mi.Characteristics)
 	assertNotNilEqual(t, "6", mi.Channels)
 
-	expected := "#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID=\"audio-lo\",LANGUAGE=\"fre\",ASSOC-LANGUAGE=\"spoken\",NAME=\"Francais\",AUTOSELECT=YES,DEFAULT=NO,URI=\"frelo/prog_index.m3u8\",FORCED=YES,INSTREAM-ID=\"SERVICE3\",CHARACTERISTICS=\"public.html\",CHANNELS=\"6\""
+	expected := "#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID=\"audio-lo\",LANGUAGE=\"fre\",ASSOC-LANGUAGE=\"spoken\",NAME=\"Francais\",AUTOSELECT=YES,DEFAULT=NO,URI=\"frelo/prog_index.m3u8\",FORCED=YES,INSTREAM-ID=\"SERVICE3\",CHARACTERISTICS=\"public.html\",CHANNELS=\"6\",STABLE-RENDITION-ID=\"1234\""
 	assertToString(t, expected, mi)
 }

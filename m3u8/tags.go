@@ -68,16 +68,17 @@ const (
 
 	// MediaItem tags
 
-	TypeTag            = "TYPE"
-	GroupIDTag         = "GROUP-ID"
-	AssocLanguageTag   = "ASSOC-LANGUAGE"
-	NameTag            = "NAME"
-	AutoSelectTag      = "AUTOSELECT"
-	DefaultTag         = "DEFAULT"
-	ForcedTag          = "FORCED"
-	InStreamIDTag      = "INSTREAM-ID"
-	CharacteristicsTag = "CHARACTERISTICS"
-	ChannelsTag        = "CHANNELS"
+	TypeTag              = "TYPE"
+	GroupIDTag           = "GROUP-ID"
+	AssocLanguageTag     = "ASSOC-LANGUAGE"
+	NameTag              = "NAME"
+	AutoSelectTag        = "AUTOSELECT"
+	DefaultTag           = "DEFAULT"
+	ForcedTag            = "FORCED"
+	InStreamIDTag        = "INSTREAM-ID"
+	CharacteristicsTag   = "CHARACTERISTICS"
+	ChannelsTag          = "CHANNELS"
+	StableRenditionIDTag = "STABLE-RENDITION-ID"
 
 	/// PlaylistItem tags
 
@@ -92,6 +93,7 @@ const (
 	SubtitlesTag        = "SUBTITLES"
 	ClosedCaptionsTag   = "CLOSED-CAPTIONS"
 	HDCPLevelTag        = "HDCP-LEVEL"
+	StableVariantIDTag  = "STABLE-VARIANT-ID"
 
 	// Values
 

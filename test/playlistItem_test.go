@@ -11,7 +11,7 @@ import (
 func TestPlaylistItem_Parse(t *testing.T) {
 	line := `#EXT-X-STREAM-INF:CODECS="avc",BANDWIDTH=540,
 PROGRAM-ID=1,RESOLUTION=1920x1080,FRAME-RATE=23.976,
-AVERAGE-BANDWIDTH=550,AUDIO="test",VIDEO="test2",
+AVERAGE-BANDWIDTH=550,AUDIO="test",VIDEO="test2",STABLE-VARIANT-ID="1234"
 SUBTITLES="subs",CLOSED-CAPTIONS="caps",URI="test.url",
 NAME="1080p",HDCP-LEVEL=TYPE-0`
 
@@ -32,6 +32,7 @@ NAME="1080p",HDCP-LEVEL=TYPE-0`
 	assertNotNilEqual(t, "1080p", pi.Name)
 	assert.False(t, pi.IFrame)
 	assertNotNilEqual(t, "TYPE-0", pi.HDCPLevel)
+	assertNotNilEqual(t, "1234", pi.StableVariantID)
 }
 
 func TestPlaylistItem_ToString(t *testing.T) {
@@ -113,9 +114,10 @@ func TestPlaylistItem_ToString_2(t *testing.T) {
 		Name:             pointer.ToString("SD"),
 		HDCPLevel:        pointer.ToString("TYPE-0"),
 		ProgramID:        pointer.ToString("1"),
+		StableVariantID:  pointer.ToString("1234"),
 	}
 
-	expected := `#EXT-X-STREAM-INF:PROGRAM-ID=1,CODECS="avc",BANDWIDTH=540,AVERAGE-BANDWIDTH=500,FRAME-RATE=30.000,HDCP-LEVEL=TYPE-0,AUDIO="test",VIDEO="test2",SUBTITLES="subs",CLOSED-CAPTIONS="caps",NAME="SD"
+	expected := `#EXT-X-STREAM-INF:PROGRAM-ID=1,CODECS="avc",BANDWIDTH=540,AVERAGE-BANDWIDTH=500,FRAME-RATE=30.000,HDCP-LEVEL=TYPE-0,AUDIO="test",VIDEO="test2",SUBTITLES="subs",CLOSED-CAPTIONS="caps",NAME="SD",STABLE-VARIANT-ID="1234"
 test.url`
 	assert.Equal(t, expected, p.String())
 
