@@ -4,6 +4,8 @@
 [![GoDoc](https://godoc.org/github.com/etherlabsio/go-m3u8/m3u8?status.svg)](https://godoc.org/github.com/etherlabsio/go-m3u8/m3u8)
 
 # go-m3u8
+This is an actively maintained fork of go module https://github.com/quangngotan95/go-m3u8, initally intended for internal use only and later made public.
+
 Golang package for m3u8 (ported m3u8 gem https://github.com/sethdeckard/m3u8)
 
 `go-m3u8` provides easy generation and parsing of m3u8 playlists defined in the HTTP Live Streaming (HLS) Internet Draft published by Apple.
